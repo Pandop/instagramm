@@ -1,11 +1,13 @@
 class PicsController < ApplicationController
-  # before_action :find_pic, only: [:show, :edit, :destroy]
+
+  before_action :find_pic, only: [:show, :edit, :update, :destroy]
+
   def index
-    @pics = Pic.all.order("created_at")
+    @pics = Pic.all.sorted
   end
 
   def show
-    @pic = Pic.find(params[:id])
+    #@pic = Pic.find(params[:id])
   end
 
   def new
@@ -22,9 +24,29 @@ class PicsController < ApplicationController
     end
   end
 
+  def edit 
+    #@pic = Pic.find(params[:id])
+  end
+
+  def update 
+    #@pic = Pic.find(params[:id])
+    if @pic.update_attributes(pic_params) 
+      flash[:notice] = "Yess! It was updated..."
+      redirect_to(pic_path())
+    else
+      render('edit')
+    end
+  end
+
+  def destroy 
+    #@pic = Pic.find(params[:id])
+    @pic.destroy 
+    redirect_to(root_path)
+  end
+
   private 
     def find_pic
-      @pic = Pic.new(pic_params)
+      @pic = Pic.find(params[:id])
     end
     def pic_params
       return params.require(:pic).permit(:title, :description)

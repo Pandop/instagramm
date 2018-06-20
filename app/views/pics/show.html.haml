@@ -1,9 +1,11 @@
 
-%h1= @pic.title
+%h2= @pic.title
 %p 
   Posted
   = time_ago_in_words(@pic.created_at)
   ago
 %p= @pic.description
 
-= link_to('Back', root_path)
+= link_to('Back', pics_path)
+= link_to('Edit',edit_pic_path)
+= link_to('Delete',pic_path, method: :delete, data: {confirm: "Are you sure?"})
