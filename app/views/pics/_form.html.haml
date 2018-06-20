@@ -4,9 +4,10 @@
       %h2
         = pluralize(@pic.errors.count, 'error')
         prevented this pic from %saving
-      %ul 
+      %ul
         - @pic.errors.full_messages.each do |msg|
           %li= msg
+    
   .form-group= f.input(:title, class: 'form-control')
   .form-group= f.input(:description, class: 'form-control')
   = f.button(:submit, class:'btn btn-info')
