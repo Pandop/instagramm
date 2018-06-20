@@ -1,9 +1,11 @@
 class PicsController < ApplicationController
-
+  # before_action :find_pic, only: [:show, :edit, :destroy]
   def index
+    @pics = Pic.all.order("created_at")
   end
 
   def show
+    @pic = Pic.find(params[:id])
   end
 
   def new
@@ -13,7 +15,7 @@ class PicsController < ApplicationController
   def create
     @pic = Pic.new(pic_params)
     if @pic.save
-      flash[:success] = "Picture was created successfully."
+      flash[:notice] = "Years! It was posted."
       redirect_to(pics_path)
     else
       render('new')
@@ -21,6 +23,9 @@ class PicsController < ApplicationController
   end
 
   private 
+    def find_pic
+      @pic = Pic.new(pic_params)
+    end
     def pic_params
       return params.require(:pic).permit(:title, :description)
     end

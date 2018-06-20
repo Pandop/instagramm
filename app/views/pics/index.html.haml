@@ -1,2 +1,5 @@
 
-%h1 Placeholder!
+- @pics.each do |pic|
+  %h2= link_to(pic.title, pic)
+  %p= time_ago_in_words(pic.created_at)
+  %p= truncate(pic.description, length: 50)

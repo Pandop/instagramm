@@ -1,0 +1,9 @@
+
+%h1= @pic.title
+%p 
+  Posted
+  = time_ago_in_words(@pic.created_at)
+  ago
+%p= @pic.description
+
+= link_to('Back', root_path)
