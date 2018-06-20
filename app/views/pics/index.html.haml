@@ -1,10 +1,4 @@
 
 - @pics.each do |pic|
   %h2= link_to(pic.title.capitalize, pic)
-  %p= truncate(pic.description, length: 100)
-  %p
-    Pic by 
-    = pic.user.email 
-    = time_ago_in_words(pic.created_at)
-    ago 
   
