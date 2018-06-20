@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users
   # Create root route to be index action i.e. pics/index
   root 'pics#index'
 
+  devise_for :users  
+
   get 'pics/index'
 
-  resources :pics
+  resources :pics do 
+    member do 
+      put "like", to: "pics#upvote"
+    end
+  end  
+  
 end

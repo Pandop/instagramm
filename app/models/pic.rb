@@ -1,5 +1,7 @@
 class Pic < ApplicationRecord
 
+  acts_as_votable
+  
   belongs_to :user
 
   scope :sorted, lambda{order("created_at DESC")}
