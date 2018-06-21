@@ -4,10 +4,11 @@ Rails.application.routes.draw do
 
   devise_for :users  
 
-  get 'pics/index'
+  #get 'pics/index'
 
   resources :pics do 
     member do 
+      #put :upvote, as: 'like'
       put "like", to: "pics#upvote"
     end
   end  
