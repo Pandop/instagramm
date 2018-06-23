@@ -1,3 +1,21 @@
 // Place all the styles related to the Pics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+// Place all the styles related to the Pins controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#pics {
+    margin: 0 auto;
+}
+
+.box {
+    margin: 5px;
+    width: 275px;
+    background: white;
+}
+
+.box img {
+    width: 100%;
+}
